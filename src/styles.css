@@ -1,0 +1,112 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-navy: var(--navy);
+  --color-cream: var(--cream);
+  --color-sky: var(--sky);
+  --color-coral: var(--coral);
+  --color-mint: var(--mint);
+  --color-gold: var(--gold);
+  --color-grape: var(--grape);
+  --color-cyan: var(--cyan);
+  --color-blush: var(--blush);
+  --font-display: "Press Start 2P", ui-monospace, monospace;
+  --font-body: "Nunito", ui-sans-serif, system-ui;
+  --shadow-retro: 6px 6px 0 0 var(--navy);
+  --shadow-retro-sm: 3px 3px 0 0 var(--navy);
+}
+
+:root {
+  --radius: 1rem;
+  --navy: oklch(0.32 0.09 260);
+  --cream: oklch(0.98 0.02 90);
+  --sky: oklch(0.86 0.09 235);
+  --coral: oklch(0.75 0.18 35);
+  --mint: oklch(0.85 0.13 165);
+  --gold: oklch(0.87 0.16 88);
+  --grape: oklch(0.68 0.19 305);
+  --cyan: oklch(0.82 0.13 210);
+  --blush: oklch(0.78 0.14 15);
+
+  --background: var(--cream);
+  --foreground: var(--navy);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--navy);
+  --primary: var(--navy);
+  --primary-foreground: var(--cream);
+  --secondary: var(--sky);
+  --secondary-foreground: var(--navy);
+  --muted: oklch(0.94 0.02 90);
+  --muted-foreground: oklch(0.5 0.05 260);
+  --accent: var(--coral);
+  --accent-foreground: var(--cream);
+  --destructive: oklch(0.6 0.22 25);
+  --border: var(--navy);
+  --input: oklch(0.9 0.02 260);
+  --ring: var(--grape);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    background-image:
+      radial-gradient(circle at 20% 10%, color-mix(in oklab, var(--sky) 40%, transparent) 0, transparent 40%),
+      radial-gradient(circle at 80% 30%, color-mix(in oklab, var(--coral) 30%, transparent) 0, transparent 45%),
+      radial-gradient(circle at 60% 90%, color-mix(in oklab, var(--mint) 35%, transparent) 0, transparent 45%);
+    background-attachment: fixed;
+  }
+  h1,h2,h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
+}
+
+@utility retro-card {
+  background: var(--card);
+  border: 3px solid var(--navy);
+  border-radius: var(--radius);
+  box-shadow: 6px 6px 0 0 var(--navy);
+}
+@utility retro-btn {
+  background: var(--coral);
+  color: var(--cream);
+  border: 3px solid var(--navy);
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 0 var(--navy);
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+@utility pixel-grid {
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--navy) 8%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--navy) 8%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
