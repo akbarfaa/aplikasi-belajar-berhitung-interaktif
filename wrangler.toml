@@ -1,0 +1,21 @@
+# Cloudflare Workers config for Aplikasi Belajar Berhitung Interaktif
+# NOTE: Nitro auto-generates the final wrangler.json at .output/server/wrangler.json
+# during build. The `main` and `assets` fields below are overridden by Nitro,
+# but the `name`, `compatibility_date`, and `compatibility_flags` are inherited.
+
+name = "aplikasi-belajar-berhitung"
+main = ".output/server/index.mjs"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = ".output/public"
+
+# Optional: KV namespace for session/state persistence (uncomment if needed)
+# [[kv_namespaces]]
+# binding = "KV"
+# id = "your-kv-id-here"
+
+# Optional: Environment variables
+# [vars]
+# ENVIRONMENT = "production"
